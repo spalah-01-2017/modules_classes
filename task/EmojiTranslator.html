@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EmojiTranslator</title>
+</head>
+<body>
+
+<p>
+    Конструктор EmojiTranslator позволяет создать объект, умеющий переводить слова в эмодзи. Описание методов указано в комментариях к ним:
+
+    function EmojiTranslator() {
+    this.emoji = {
+    panda: '🐼',
+    unicorn: '🦄'
+    };
+    this.text = '';
+    }
+
+    EmojiTranslator.prototype.setText = function(text) {
+    //устанавливает текст для перевода в свойство text
+    };
+
+    EmojiTranslator.prototype.translate = function() {
+    //заменяет слова в строке свойства text на панду или единорога: если слово начинается на 'a', 'e', 'i', 'o', 'u' или 'y' - то единорог, иначе - панда.
+    }
+</p>
+
+<script>
+    function EmojiTranslator() {
+        this.emoji = {
+            panda: '🐼',
+            unicorn: '🦄'
+        };
+        this.text = '';
+    }
+
+    EmojiTranslator.prototype.setText = function(text) {
+        this.text = text;
+        return this;
+        //устанавливает текст для перевода в свойство text
+    };
+
+    EmojiTranslator.prototype.translate = function() {
+        var arr = this.text.split(' ');
+        return trans(this.emoji);
+        function trans(emoji) {
+            return arr.map(function(el){
+                if('aeiouy'.indexOf(el[0]) > -1){
+                    return emoji.panda;
+                } else {
+                    return emoji.unicorn;
+                }
+            });
+        }
+        //заменяет слова в строке свойства text на панду или единорога: если слово начинается на 'a', 'e', 'i', 'o', 'u' или 'y' - то единорог, иначе - панда.
+    };
+
+    var translator = new EmojiTranslator();
+//    translator.setText('unicorn rabbit panda elephant fox turtle');
+//    console.log(translator.translate()); // '🦄 🐼 🐼 🦄 🐼 🐼'
+
+    console.log(translator.setText('unicorn rabbit panda elephant fox turtle').translate());
+
+</script>
+
+</body>
+</html>

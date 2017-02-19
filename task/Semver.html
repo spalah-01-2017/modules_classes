@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Semver</title>
+</head>
+<body>
+
+<script>
+    function Semver(initial) {
+        this.version = initial || '0.0.0';
+        change = function (obj, index) {
+            var arr = obj.version.split('.');
+            arr.forEach(function (el, i) {
+                arr[i] = +arr[i];
+                if(i > index) arr[i] = 0;
+            });
+            arr[index] = arr[index] + 1;
+            obj.version = arr.join('.');
+        }
+    }
+
+    Semver.prototype.patch = function () {
+        change(this, 2);
+        //увеличивает патч-версию на единицу: '0.0.0' -> '0.0.1'
+    };
+
+    Semver.prototype.minor = function () {
+        change(this, 1);
+        //увеличивает минорную версию на единицу, при этом сбрасывая патч-версию до нуля: '0.0.1' -> '0.1.0'
+    };
+
+    Semver.prototype.major = function () {
+        change(this, 0);
+        //увеличивает мажорную версию на единицу, сбрасывая как патч-версию, таки и минорную версию до нуля: '0.1.1' -> '1.0.0'
+    };
+
+    var semver = new Semver();
+    console.log(semver);
+    semver.patch();
+    console.log(semver.version); // '0.0.1'
+    semver.patch();
+    semver.patch();
+    console.log(semver.version); // '0.0.3'
+    semver.minor();
+    console.log(semver.version); // '0.1.0'
+    semver.patch();
+    console.log(semver.version); // '0.1.1'
+    semver.major();
+    console.log(semver.version); // '1.0.0'
+
+
+</script>
+
+</body>
+</html>
