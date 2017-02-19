@@ -7,7 +7,7 @@ function EmojiTranslator() {
 }
 
 EmojiTranslator.prototype.setText = function(text) {
-	this.text = text.trim();
+	this.text = text.trim().toLowerCase();
 	return this;
 };
 
@@ -16,12 +16,12 @@ EmojiTranslator.prototype.translate = function() {
 	var newArr = [];
 	arr = this.text.split(' ');
 	arr.map(function (el) {
-		if (el.charAt(0).toLowerCase() === 'a' ||
-				el.charAt(0).toLowerCase() === 'e' ||
-				el.charAt(0).toLowerCase() === 'i' || 
-				el.charAt(0).toLowerCase() === 'o' || 
-				el.charAt(0).toLowerCase() === 'u' || 
-				el.charAt(0).toLowerCase() === 'y')
+		if (el.charAt(0) === 'a' ||
+		    el.charAt(0) === 'e' ||
+		    el.charAt(0) === 'i' || 
+		    el.charAt(0) === 'o' || 
+		    el.charAt(0) === 'u' || 
+		    el.charAt(0) === 'y')
 			{
 				newArr.push(this.emoji.unicorn)
 			} else {
