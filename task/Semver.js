@@ -1,18 +1,18 @@
 function Semver(initial) {
 	this.version = initial || '0.0.0'
-	this.pa = 0;
-	this.mi = 0;
-	this.ma = 0;
+	this.c = 0;
+	this.b = 0;
+	this.a = 0;
 }
 
 Semver.prototype.patch = function () {
-	this.version = '0.' + '0.' + ++this.pa;
+	this.version = this.a + '.' + this.b +  '.' + ++this.c;
 }
 
 Semver.prototype.minor = function () {
-	this.version = '0.' + ++this.mi + '.0';
+	this.version = this.a + '.' + ++this.b + '.' + (this.c = 0);
 }
 
 Semver.prototype.major = function () {
-	this.version = ++this.ma + '.0' + '.0';
+	this.version = ++this.a + '.' + (this.b = 0) + '.' + (this.c = 0);
 }
