@@ -11,8 +11,8 @@ Semver.prototype.patch = function () {
     ver[2] = ++ver[2];
     var newVer = ver.join('.');
     console.log(newVer);
-    semver.version = newVer;
-    return semver.version;
+    this.version = newVer;
+    return this.version;
 };
 
 Semver.prototype.minor = function () {
@@ -22,8 +22,8 @@ Semver.prototype.minor = function () {
     ver[2] = 0;
     var newVer = ver.join('.');
     console.log(newVer);
-    semver.version = newVer;
-    return semver.version;
+    this.version = newVer;
+    return this.version;
 };
 
 Semver.prototype.major = function () {
@@ -34,8 +34,8 @@ Semver.prototype.major = function () {
     ver[2] = 0;
     var newVer = ver.join('.');
     console.log(newVer);
-    semver.version = newVer;
-    return semver.version;
+    this.version = newVer;
+    return this.version;
 };
 // Примеры реализованного кода:
 
