@@ -17,6 +17,3 @@ Semver.prototype.minor = function () {
 Semver.prototype.major = function () {
 	this.version = ++this.a + '.' + (this.b = 0) + '.' + (this.c = 0);
 }
-function () {
-	this.version = ++this.a + '.' + (this.b = 0) + '.' + (this.c = 0);
-}
