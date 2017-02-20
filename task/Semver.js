@@ -1,9 +1,9 @@
 function Semver(initial) {
 	this.version = initial || '0.0.0'
-	this.newArr = initial.split('.');
-	this.c = this.newArr[2] || 0;
-	this.b = this.newArr[1] || 0;
-	this.a = this.newArr[0] || 0;
+	var newArr = initial.split('.');
+	this.c = newArr[2] || 0;
+	this.b = newArr[1] || 0;
+	this.a = newArr[0] || 0;
 }
 
 Semver.prototype.patch = function () {
