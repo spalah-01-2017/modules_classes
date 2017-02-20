@@ -1,6 +1,6 @@
 function Semver(initial) {
 	this.version = initial || '0.0.0'
-	var newArr = initial.split('.');
+	var newArr = initial ? initial.split('.') : [];
 	this.c = newArr[2] || 0;
 	this.b = newArr[1] || 0;
 	this.a = newArr[0] || 0;
